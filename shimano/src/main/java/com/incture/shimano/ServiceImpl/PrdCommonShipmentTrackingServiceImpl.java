@@ -95,9 +95,9 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
                 prdCommonShipmentTracking.setPodVesselName(prdCommonShipmentTrackingDto.getPodVesselName());
                 prdCommonShipmentTracking.setNote(prdCommonShipmentTrackingDto.getNote());
                 prdCommonShipmentTracking.setMbl(prdCommonShipmentTrackingDto.getMbl());
-                prdCommonShipmentTracking.setPodVesselName(prdCommonShipmentTrackingDto.getPooVesselName());
+                prdCommonShipmentTracking.setPodVesselName(prdCommonShipmentTrackingDto.getPolVesselName());
                 prdCommonShipmentTracking.setPortOfDischarge(prdCommonShipmentTrackingDto.getPortOfDischarge());
-                prdCommonShipmentTracking.setPortOfOrigin(prdCommonShipmentTrackingDto.getPortOfOrigin());
+                prdCommonShipmentTracking.setPortOfLoading(prdCommonShipmentTrackingDto.getPortOfLoading());
                 prdCommonShipmentTracking.setProductType(prdCommonShipmentTrackingDto.getProductType());
                 prdCommonShipmentTrackingRepository.save(prdCommonShipmentTracking);
                 LOGGER.info("Successfully updated PrdCommonShipmentTracking into DB");

@@ -40,8 +40,8 @@ public class PrdCommonShipmentTracking {
     @Column(name = "AIRWAY_BILL_NUMBER")
     private String airwayBillNumber;
 
-    @Column(name = "POO_ESTIMATED_TIME_OF_DEPARTURE")
-    private String pooEstimatedTimeOfDeparture;
+    @Column(name = "POL_ESTIMATED_TIME_OF_DEPARTURE")
+    private String polEstimatedTimeOfDeparture;
 
     @Column(name = "P44_STATUS")
     private String p44Status;
@@ -58,15 +58,15 @@ public class PrdCommonShipmentTracking {
     @Column(name = "PRODUCT_TYPE")
     private String productType;
 
-    @Column(name = "PORT_OF_ORIGIN")
-    private String portOfOrigin;
+    @Column(name = "PORT_OF_LOADING")
+    private String portOfLoading;
 
 
-    @Column(name = "POO_ACTUAL_TIME_OF_DEPARTURE")
-    private String pooActualTimeOfDeparture;
+    @Column(name = "POL_ACTUAL_TIME_OF_DEPARTURE")
+    private String polActualTimeOfDeparture;
 
-    @Column(name = "POO_VESSEL_NAME")
-    private String pooVesselName;
+    @Column(name = "POL_VESSEL_NAME")
+    private String polVesselName;
 
     @Column(name = "PORT_OF_DISCHARGE")
     private String portOfDischarge;
