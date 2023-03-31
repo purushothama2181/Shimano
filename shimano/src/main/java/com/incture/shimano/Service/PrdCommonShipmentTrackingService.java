@@ -1,6 +1,7 @@
 package com.incture.shimano.Service;
 
 import com.incture.shimano.Dto.PrdCommonShipmentTrackingDto;
+import com.incture.shimano.Dto.PrdDto;
 import com.incture.shimano.Entity.PrdCommonShipmentTracking;
 import com.incture.shimano.Util.ResponseMessage;
 
@@ -18,6 +19,6 @@ public interface PrdCommonShipmentTrackingService {
 //
 //    List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByActualDate(String transactionDate) throws ParseException;
 
-      public List<PrdCommonShipmentTracking> getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival , String podActualTimeOfArrival) throws ParseException;
+      public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival , String podActualTimeOfArrival) throws ParseException;
 
 }

@@ -3,6 +3,7 @@ com\incture\shimano\Repository\PrdCommonShipmentTrackingRepository.class
 com\incture\shimano\Service\PrdCommonShipmentTrackingService.class
 com\incture\shimano\Entity\PrdCommonShipmentTracking.class
 com\incture\shimano\Config\SwaggerConfig.class
+com\incture\shimano\Dto\PrdDto.class
 com\incture\shimano\Util\ShimanoConstants.class
 com\incture\shimano\ShimanoApplication.class
 com\incture\shimano\Dto\PrdCommonShipmentTrackingDto.class

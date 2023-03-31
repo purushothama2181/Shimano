@@ -1,6 +1,7 @@
 package com.incture.shimano.ServiceImpl;
 
 import com.incture.shimano.Dto.PrdCommonShipmentTrackingDto;
+import com.incture.shimano.Dto.PrdDto;
 import com.incture.shimano.Entity.PrdCommonShipmentTracking;
 import com.incture.shimano.Repository.PrdCommonShipmentTrackingRepository;
 import com.incture.shimano.Service.PrdCommonShipmentTrackingService;
@@ -116,15 +117,19 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
     }
 
     @Override
-    public List<PrdCommonShipmentTracking> getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival, String podActualTimeOfArrival) throws ParseException {
+    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival, String podActualTimeOfArrival) throws ParseException {
+
+        PrdDto prdDto = new PrdDto();
       //  String ed = podEstimatedTimeOfArrival +" 00:00:00";
      //   String ad = podActualTimeOfArrival +" 00:00:00"
 
 //        Date date1 = dateFormat.parse(podEstimatedTimeOfArrival);
 //        Date date2 = dateFormat.parse(podActualTimeOfArrival);
-        return prdCommonShipmentTrackingRepository.findByPodEstimatedTimeOfArrivalAndPodActualTimeOfArrival(podEstimatedTimeOfArrival, podActualTimeOfArrival);
-    }
+        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingRepository.findByPodEstimatedTimeOfArrivalAndPodActualTimeOfArrival(podEstimatedTimeOfArrival, podActualTimeOfArrival));
 
+       return prdDto;
+    }
+;
     //   @Override
 //    public List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByEta(String etaDate) throws ParseException {
 //        String st = etaDate+" 00:00:00";

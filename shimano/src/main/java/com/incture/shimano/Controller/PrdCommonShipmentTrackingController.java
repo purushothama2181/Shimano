@@ -1,6 +1,7 @@
 package com.incture.shimano.Controller;
 
 import com.incture.shimano.Dto.PrdCommonShipmentTrackingDto;
+import com.incture.shimano.Dto.PrdDto;
 import com.incture.shimano.Entity.PrdCommonShipmentTracking;
 import com.incture.shimano.Service.PrdCommonShipmentTrackingService;
 import com.incture.shimano.Util.ResponseMessage;
@@ -39,7 +40,7 @@ public class PrdCommonShipmentTrackingController {
     }
 
     @GetMapping(value = "/getPrdCommonShipmentByActualEstimatedTime")
-    public List<PrdCommonShipmentTracking> getPrdCommonShipmentByActualAndEstimatedTimeArrival(@RequestParam("podEstimatedTimeOfArrival") String podEstimatedTimeOfArrival , @RequestParam("podActualTimeOfArrival") String podActualTimeOfArrival) throws ParseException {
+    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(@RequestParam("podEstimatedTimeOfArrival") String podEstimatedTimeOfArrival , @RequestParam("podActualTimeOfArrival") String podActualTimeOfArrival) throws ParseException {
         return prdCommonShipmentTrackingService.getPrdCommonShipmentByActualAndEstimatedTimeArrival(podEstimatedTimeOfArrival,podActualTimeOfArrival);
     }
 
