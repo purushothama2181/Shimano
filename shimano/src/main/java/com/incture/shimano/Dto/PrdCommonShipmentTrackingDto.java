@@ -18,7 +18,7 @@ public class PrdCommonShipmentTrackingDto {
     private String scac;
     private String containerID;
     private String airwayBillNumber;
-    private String polEstimatedTimeOfDeparture;
+//    private String polEstimatedTimeOfDeparture;
     private String p44Status;
     private String closedFlag;
     private String mbl;
@@ -28,7 +28,11 @@ public class PrdCommonShipmentTrackingDto {
     private String polActualTimeOfDeparture;
     private String polVesselName;
     private String portOfDischarge;
-    private String podEstimatedTimeOfArrival;
+//    private String podEstimatedTimeOfArrival;
     private String podActualTimeOfArrival;
     private String podVesselName;
+    private String podCarrierEta;
+    private String podP44Eta;
+    private String p44ShipmentId;
+    private String p44StatusDate;
 }

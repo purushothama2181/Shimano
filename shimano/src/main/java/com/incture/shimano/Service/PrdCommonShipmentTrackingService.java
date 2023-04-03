@@ -19,6 +19,6 @@ public interface PrdCommonShipmentTrackingService {
 //
 //    List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByActualDate(String transactionDate) throws ParseException;
 
-      public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival , String podActualTimeOfArrival) throws ParseException;
+  //    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival , String podActualTimeOfArrival) throws ParseException;
 
 }

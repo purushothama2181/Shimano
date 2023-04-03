@@ -25,11 +25,17 @@ public class PrdCommonShipmentTracking {
     @Column(name = "TRANSACTION_ID")
     private UUID transactionId;
 
-    @Column(name = "Transaction_Date")
+    @Column(name = "MBL")
+    private String mbl;
+
+    @Column(name = "TRANSACTION_DATE")
     private String transactionDate;
 
-    @Column(name = "INVOICE_NUMBER")
-    private String invoiceNumber;
+    @Column(name = "P44_STATUS")
+    private String p44Status;
+
+    @Column(name = "CLOSED_FLAG")
+    private String closedFlag;
 
     @Column(name = "SCAC")
     private String scac;
@@ -40,30 +46,23 @@ public class PrdCommonShipmentTracking {
     @Column(name = "AIRWAY_BILL_NUMBER")
     private String airwayBillNumber;
 
-    @Column(name = "POL_ESTIMATED_TIME_OF_DEPARTURE")
-    private String polEstimatedTimeOfDeparture;
-
-    @Column(name = "P44_STATUS")
-    private String p44Status;
-
-    @Column(name = "CLOSED_FLAG")
-    private String closedFlag;
-
-    @Column(name = "MBL")
-    private String mbl;
-
-    @Column(name = "NOTE")
-    private String note;
+    @Column(name = "INVOICE_NUMBER")
+    private String invoiceNumber;
 
     @Column(name = "PRODUCT_TYPE")
     private String productType;
 
+    @Column(name = "NOTE")
+    private String note;
+
     @Column(name = "PORT_OF_LOADING")
     private String portOfLoading;
 
-
     @Column(name = "POL_ACTUAL_TIME_OF_DEPARTURE")
     private String polActualTimeOfDeparture;
+
+//    @Column(name = "POL_ESTIMATED_TIME_OF_DEPARTURE")
+//    private String polEstimatedTimeOfDeparture;
 
     @Column(name = "POL_VESSEL_NAME")
     private String polVesselName;
@@ -72,8 +71,8 @@ public class PrdCommonShipmentTracking {
     private String portOfDischarge;
 
 
-    @Column(name = "POD_ESTIMATED_TIME_OF_ARRIVAL")
-    private String podEstimatedTimeOfArrival;
+//    @Column(name = "POD_ESTIMATED_TIME_OF_ARRIVAL")
+//    private String podEstimatedTimeOfArrival;
 
 
     @Column(name = "POD_ACTUAL_TIME_OF_ARRIVAL")
@@ -81,5 +80,18 @@ public class PrdCommonShipmentTracking {
 
     @Column(name = "POD_VESSEL_NAME")
     private String podVesselName;
+
+    @Column(name = "POD_CARRIER_ETA")
+    private String podCarrierEta;
+
+    @Column(name = "POD_P44_ETA")
+    private String podP44Eta;
+
+    @Column(name = "P44_SHIPMENT_ID")
+    private String p44ShipmentId;
+
+    @Column(name = "P44_STATUS_DATE")
+    private String p44StatusDate;
+
 
 }

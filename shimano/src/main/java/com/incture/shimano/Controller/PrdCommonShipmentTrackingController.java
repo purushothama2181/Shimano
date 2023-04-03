@@ -39,10 +39,10 @@ public class PrdCommonShipmentTrackingController {
         return prdCommonShipmentTrackingService.updatePrdCommonShipment(prdCommonShipmentTrackingDto);
     }
 
-    @GetMapping(value = "/getPrdCommonShipmentByActualEstimatedTime")
-    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(@RequestParam("podEstimatedTimeOfArrival") String podEstimatedTimeOfArrival , @RequestParam("podActualTimeOfArrival") String podActualTimeOfArrival) throws ParseException {
-        return prdCommonShipmentTrackingService.getPrdCommonShipmentByActualAndEstimatedTimeArrival(podEstimatedTimeOfArrival,podActualTimeOfArrival);
-    }
+//    @GetMapping(value = "/getPrdCommonShipmentByActualEstimatedTime")
+//    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(@RequestParam("podEstimatedTimeOfArrival") String podEstimatedTimeOfArrival , @RequestParam("podActualTimeOfArrival") String podActualTimeOfArrival) throws ParseException {
+//        return prdCommonShipmentTrackingService.getPrdCommonShipmentByActualAndEstimatedTimeArrival(podEstimatedTimeOfArrival,podActualTimeOfArrival);
+//    }
 
 //    @GetMapping(value = "/getPrdCommonShipmentByEta")
 //    public List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByEta(@RequestParam("etaDate") String etaDate) throws ParseException {

@@ -53,9 +53,15 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
 
     @Override
     public ResponseMessage savePrdCommonShipment(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto) {
-        ResponseMessage responseMessage = new ResponseMessage();
+         ResponseMessage responseMessage = new ResponseMessage();
+//        if (prdCommonShipmentTrackingDto != null ) {
+//            if(prdCommonShipmentTrackingDto.getPodEstimatedTimeOfArrival() != null && prdCommonShipmentTrackingDto.getPodActualTimeOfArrival() != null) {
+//                prdCommonShipmentTrackingDto.setP44Status("Completed");
+//            } else {
+//                prdCommonShipmentTrackingDto.setP44Status("In Progress");
+//            }
         if (prdCommonShipmentTrackingDto != null ) {
-            if(prdCommonShipmentTrackingDto.getPodEstimatedTimeOfArrival() != null && prdCommonShipmentTrackingDto.getPodActualTimeOfArrival() != null) {
+            if(prdCommonShipmentTrackingDto.getPodActualTimeOfArrival() != null) {
                 prdCommonShipmentTrackingDto.setP44Status("Completed");
             } else {
                 prdCommonShipmentTrackingDto.setP44Status("In Progress");
@@ -116,20 +122,20 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
         return responseMessage;
     }
 
-    @Override
-    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival, String podActualTimeOfArrival) throws ParseException {
+//    @Override
+//    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(String podEstimatedTimeOfArrival, String podActualTimeOfArrival) throws ParseException {
+//
+//        PrdDto prdDto = new PrdDto();
+//      //  String ed = podEstimatedTimeOfArrival +" 00:00:00";
+//     //   String ad = podActualTimeOfArrival +" 00:00:00"
+//
+////        Date date1 = dateFormat.parse(podEstimatedTimeOfArrival);
+////        Date date2 = dateFormat.parse(podActualTimeOfArrival);
+//        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingRepository.findByPodEstimatedTimeOfArrivalAndPodActualTimeOfArrival(podEstimatedTimeOfArrival, podActualTimeOfArrival));
+//
+//       return prdDto;
+//    }
 
-        PrdDto prdDto = new PrdDto();
-      //  String ed = podEstimatedTimeOfArrival +" 00:00:00";
-     //   String ad = podActualTimeOfArrival +" 00:00:00"
-
-//        Date date1 = dateFormat.parse(podEstimatedTimeOfArrival);
-//        Date date2 = dateFormat.parse(podActualTimeOfArrival);
-        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingRepository.findByPodEstimatedTimeOfArrivalAndPodActualTimeOfArrival(podEstimatedTimeOfArrival, podActualTimeOfArrival));
-
-       return prdDto;
-    }
-;
     //   @Override
 //    public List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByEta(String etaDate) throws ParseException {
 //        String st = etaDate+" 00:00:00";

@@ -13,12 +13,12 @@ public interface PrdCommonShipmentTrackingRepository extends JpaRepository<PrdCo
     PrdCommonShipmentTracking findByTransactionId(UUID transactionId);
    
 
-    List<PrdCommonShipmentTracking> findByTransactionDate(Date transactionDate);
+//    List<PrdCommonShipmentTracking> findByTransactionDate(Date transactionDate);
 
 
 //    List<PrdCommonShipmentTracking> findByEtaDateBetween(Date date1, Date date2);
 //
 //    List<PrdCommonShipmentTracking> findByTransactionDateBetween(Date date1, Date date2);
 
-    List<PrdCommonShipmentTracking> findByPodEstimatedTimeOfArrivalAndPodActualTimeOfArrival(String podEstimatedTimeOfArrival, String PodActualTimeOfArrival);
+//    List<PrdCommonShipmentTracking> findByPodEstimatedTimeOfArrivalAndPodActualTimeOfArrival(String podEstimatedTimeOfArrival, String PodActualTimeOfArrival);
 }
