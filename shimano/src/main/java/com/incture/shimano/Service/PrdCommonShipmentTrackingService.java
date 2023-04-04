@@ -6,6 +6,7 @@ import com.incture.shimano.Entity.PrdCommonShipmentTracking;
 import com.incture.shimano.Util.ResponseMessage;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 public interface PrdCommonShipmentTrackingService {
@@ -13,6 +14,8 @@ public interface PrdCommonShipmentTrackingService {
     public ResponseMessage savePrdCommonShipment(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto);
 
     public ResponseMessage updatePrdCommonShipment(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto);
+
+    PrdDto getPrdCommonShipmentByEta(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto);
 
 //    List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByEta(String etaDate) throws ParseException;
 //

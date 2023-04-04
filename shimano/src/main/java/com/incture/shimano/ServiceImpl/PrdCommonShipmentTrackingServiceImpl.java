@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -120,6 +121,33 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
             responseMessage.setResponseStatus("failed to update PrdCommonShipmentTracking because of null object", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
         }
         return responseMessage;
+    }
+
+    @Override
+    public PrdDto getPrdCommonShipmentByEta( PrdCommonShipmentTrackingDto PrdCommonShipmentTrackingDto) {
+        PrdDto prdDto = new PrdDto();
+        Timestamp createdOnTimeStamp = null;
+        Timestamp currentTime= null;
+        System.out.println(PrdCommonShipmentTrackingDto.toString());
+        if(PrdCommonShipmentTrackingDto.getTransactionDate()!=null) {
+            Date date = new Date();
+            currentTime = new Timestamp(date.getTime());
+            String pattern = "yyyy-MM-dd";
+            DateFormat df = new SimpleDateFormat(pattern);
+            String todayAsString = df.format(PrdCommonShipmentTrackingDto.getTransactionDate()) + " 00:00:00";
+            Date fromDate;
+            SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            try {
+                fromDate = parser.parse(todayAsString);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+
+            createdOnTimeStamp = new Timestamp(fromDate.getTime());
+        }
+        List<PrdCommonShipmentTracking> prdCommonShipmentTrackingList = prdCommonShipmentTrackingRepository.filter(currentTime,createdOnTimeStamp);
+        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
+        return prdDto;
     }
 
 //    @Override

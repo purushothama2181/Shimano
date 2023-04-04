@@ -28,8 +28,9 @@ public class PrdCommonShipmentTracking {
     @Column(name = "MBL")
     private String mbl;
 
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name = "TRANSACTION_DATE")
-    private String transactionDate;
+    private Date transactionDate;
 
     @Column(name = "P44_STATUS")
     private String p44Status;
@@ -58,8 +59,9 @@ public class PrdCommonShipmentTracking {
     @Column(name = "PORT_OF_LOADING")
     private String portOfLoading;
 
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name = "POL_ACTUAL_TIME_OF_DEPARTURE")
-    private String polActualTimeOfDeparture;
+    private Date polActualTimeOfDeparture;
 
 //    @Column(name = "POL_ESTIMATED_TIME_OF_DEPARTURE")
 //    private String polEstimatedTimeOfDeparture;
@@ -74,24 +76,27 @@ public class PrdCommonShipmentTracking {
 //    @Column(name = "POD_ESTIMATED_TIME_OF_ARRIVAL")
 //    private String podEstimatedTimeOfArrival;
 
-
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name = "POD_ACTUAL_TIME_OF_ARRIVAL")
-    private String podActualTimeOfArrival;
+    private Date podActualTimeOfArrival;
 
     @Column(name = "POD_VESSEL_NAME")
     private String podVesselName;
 
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name = "POD_CARRIER_ETA")
-    private String podCarrierEta;
+    private Date podCarrierEta;
 
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name = "POD_P44_ETA")
-    private String podP44Eta;
+    private Date podP44Eta;
 
     @Column(name = "P44_SHIPMENT_ID")
     private String p44ShipmentId;
 
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name = "P44_STATUS_DATE")
-    private String p44StatusDate;
+    private Date p44StatusDate;
 
 
 }

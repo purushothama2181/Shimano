@@ -1,5 +1,5 @@
 server:
-  port: 8181
+  port: 8182
   max-http-header-size : 50KB
   connection-timeout: 300000ms
   tomcat:

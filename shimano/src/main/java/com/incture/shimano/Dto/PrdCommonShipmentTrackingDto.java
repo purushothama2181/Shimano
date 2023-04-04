@@ -13,7 +13,7 @@ import java.util.UUID;
 public class PrdCommonShipmentTrackingDto {
 
     private UUID transactionId;
-    private String transactionDate;
+    private Date transactionDate;
     private String invoiceNumber;
     private String scac;
     private String containerID;
@@ -25,14 +25,14 @@ public class PrdCommonShipmentTrackingDto {
     private String note;
     private String productType;
     private String portOfLoading;
-    private String polActualTimeOfDeparture;
+    private Date polActualTimeOfDeparture;
     private String polVesselName;
     private String portOfDischarge;
 //    private String podEstimatedTimeOfArrival;
-    private String podActualTimeOfArrival;
+    private Date podActualTimeOfArrival;
     private String podVesselName;
-    private String podCarrierEta;
-    private String podP44Eta;
+    private Date podCarrierEta;
+    private Date podP44Eta;
     private String p44ShipmentId;
-    private String p44StatusDate;
+    private Date p44StatusDate;
 }
