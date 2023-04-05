@@ -7,6 +7,7 @@ import com.incture.shimano.Repository.PrdCommonShipmentTrackingRepository;
 import com.incture.shimano.Service.PrdCommonShipmentTrackingService;
 import com.incture.shimano.Util.ResponseMessage;
 import com.incture.shimano.Util.ShimanoConstants;
+import org.apache.http.client.utils.DateUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +19,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTrackingService {
@@ -69,6 +67,9 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
             }
             LOGGER.info("started saving the CustomerLogInfo into db");
  //           prdCommonShipmentTrackingDto.setEtaDate(ts);
+//            TimeZone.setDefault(TimeZone.getTimeZone("America/Los_Angeles"));
+//            Date date = new Date();
+//            prdCommonShipmentTrackingDto.setTransactionDate(date);
             PrdCommonShipmentTracking prdCommonShipmentTracking = this.dtoToEntity(prdCommonShipmentTrackingDto);
             try {
                 PrdCommonShipmentTracking prdCommonShipmentTracking1 = prdCommonShipmentTrackingRepository.save(prdCommonShipmentTracking);
@@ -130,6 +131,7 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
         Timestamp currentTime= null;
         System.out.println(PrdCommonShipmentTrackingDto.toString());
         if(PrdCommonShipmentTrackingDto.getTransactionDate()!=null) {
+            TimeZone.setDefault(TimeZone.getTimeZone("America/Los_Angeles"));
             Date date = new Date();
             currentTime = new Timestamp(date.getTime());
             String pattern = "yyyy-MM-dd";
@@ -143,7 +145,7 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
                 throw new RuntimeException(e);
             }
 
-            createdOnTimeStamp = new Timestamp(fromDate.getTime());
+            createdOnTimeStamp = new Timestamp(fromDate.getTime()+ 1 * 24 * 60 * 60 * 1000);
         }
         List<PrdCommonShipmentTracking> prdCommonShipmentTrackingList = prdCommonShipmentTrackingRepository.filter(currentTime,createdOnTimeStamp);
         prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
