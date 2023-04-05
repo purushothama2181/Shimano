@@ -15,9 +15,9 @@ public class ResponseMessage {
 
     private String statusCode;
 
-    private UUID transactionId;
+    private Integer transactionId;
 
-    public void setResponseStatus(String msg, String status, String code, UUID transactionId) {
+    public void setResponseStatus(String msg, String status, String code, Integer transactionId) {
         this.responseMessage = msg ;
         this.status = status ;
         this.statusCode = code ;

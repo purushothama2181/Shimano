@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -75,12 +76,12 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
                 responseMessage.setResponseStatus("Successfully Saved ChangeLogInfo", ShimanoConstants.SUCCESS, ShimanoConstants.CODE_SUCCESS, prdCommonShipmentTracking.getTransactionId());
             } catch (Exception e) {
                 LOGGER.error("Save PrdCommonShipmentTracking Failed: " + e.getMessage());
-                responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed: " + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+                responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed: " + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
                 e.getMessage();
             }
         } else {
             LOGGER.info("unable to save PrdCommonShipmentTracking because prdCommonShipmentTrackingDto is null");
-            responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+            responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
         }
         return responseMessage;
     }
@@ -112,14 +113,41 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
 
             } catch (Exception e) {
                 LOGGER.error(" failed to update the PrdCommonShipmentTracking from db " + e.getMessage());
-                responseMessage.setResponseStatus("Failed to update PrdCommonShipmentTracking" + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+                responseMessage.setResponseStatus("Failed to update PrdCommonShipmentTracking" + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
                 e.getMessage();
             }
         }else {
             LOGGER.info("failed to update PrdCommonShipmentTracking because of null object");
-            responseMessage.setResponseStatus("failed to update PrdCommonShipmentTracking because of null object", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+            responseMessage.setResponseStatus("failed to update PrdCommonShipmentTracking because of null object", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
         }
         return responseMessage;
+    }
+
+    @Override
+    public PrdDto getPrdCommonShipmentByEta( PrdCommonShipmentTrackingDto PrdCommonShipmentTrackingDto) {
+        PrdDto prdDto = new PrdDto();
+        Timestamp createdOnTimeStamp = null;
+        Timestamp currentTime= null;
+        System.out.println(PrdCommonShipmentTrackingDto.toString());
+        if(PrdCommonShipmentTrackingDto.getTransactionDate()!=null) {
+            Date date = new Date();
+            currentTime = new Timestamp(date.getTime());
+            String pattern = "yyyy-MM-dd";
+            DateFormat df = new SimpleDateFormat(pattern);
+            String todayAsString = df.format(PrdCommonShipmentTrackingDto.getTransactionDate()) + " 00:00:00";
+            Date fromDate;
+            SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            try {
+                fromDate = parser.parse(todayAsString);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+
+            createdOnTimeStamp = new Timestamp(fromDate.getTime());
+        }
+        List<PrdCommonShipmentTracking> prdCommonShipmentTrackingList = prdCommonShipmentTrackingRepository.filter(currentTime,createdOnTimeStamp);
+        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
+        return prdDto;
     }
 
 //    @Override

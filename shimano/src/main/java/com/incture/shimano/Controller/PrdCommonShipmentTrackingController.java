@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -53,6 +54,13 @@ public class PrdCommonShipmentTrackingController {
 //    public List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByActualDate(@RequestParam("transactionDate") String transactionDate) throws ParseException{
 //        return prdCommonShipmentTrackingService.getPrdCommonShipmentByActualDate(transactionDate);
 //    }
+
+    @GetMapping(value = "/getPrdCommonShipmentByEta")
+    public PrdDto getPrdCommonShipmentByEta(@RequestBody PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto)  {
+     return prdCommonShipmentTrackingService.getPrdCommonShipmentByEta(prdCommonShipmentTrackingDto);
+    }
+
+
 
 
 }
