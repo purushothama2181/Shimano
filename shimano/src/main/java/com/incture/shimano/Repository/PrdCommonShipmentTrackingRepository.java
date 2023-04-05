@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface PrdCommonShipmentTrackingRepository extends JpaRepository<PrdCommonShipmentTracking, UUID> {
-    PrdCommonShipmentTracking findByTransactionId(UUID transactionId);
+    PrdCommonShipmentTracking findByTransactionId(Integer transactionId);
 
     @Query(value="from PrdCommonShipmentTracking c "
             + "where (:transactionDate is null or c.transactionDate between :transactionDate and :currentTime)")

@@ -17,13 +17,9 @@ import java.util.UUID;
 public class PrdCommonShipmentTracking {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "TRANSACTION_ID")
-    private UUID transactionId;
+    private Integer transactionId;
 
     @Column(name = "MBL")
     private String mbl;

@@ -76,12 +76,12 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
                 responseMessage.setResponseStatus("Successfully Saved ChangeLogInfo", ShimanoConstants.SUCCESS, ShimanoConstants.CODE_SUCCESS, prdCommonShipmentTracking.getTransactionId());
             } catch (Exception e) {
                 LOGGER.error("Save PrdCommonShipmentTracking Failed: " + e.getMessage());
-                responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed: " + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+                responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed: " + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
                 e.getMessage();
             }
         } else {
             LOGGER.info("unable to save PrdCommonShipmentTracking because prdCommonShipmentTrackingDto is null");
-            responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+            responseMessage.setResponseStatus("Save PrdCommonShipmentTracking Failed", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
         }
         return responseMessage;
     }
@@ -113,12 +113,12 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
 
             } catch (Exception e) {
                 LOGGER.error(" failed to update the PrdCommonShipmentTracking from db " + e.getMessage());
-                responseMessage.setResponseStatus("Failed to update PrdCommonShipmentTracking" + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+                responseMessage.setResponseStatus("Failed to update PrdCommonShipmentTracking" + e.getMessage(), ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
                 e.getMessage();
             }
         }else {
             LOGGER.info("failed to update PrdCommonShipmentTracking because of null object");
-            responseMessage.setResponseStatus("failed to update PrdCommonShipmentTracking because of null object", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, UUID.fromString(""));
+            responseMessage.setResponseStatus("failed to update PrdCommonShipmentTracking because of null object", ShimanoConstants.FAILURE, ShimanoConstants.CODE_FAILURE, null);
         }
         return responseMessage;
     }

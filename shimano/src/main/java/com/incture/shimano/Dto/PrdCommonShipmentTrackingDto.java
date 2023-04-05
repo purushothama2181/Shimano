@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class PrdCommonShipmentTrackingDto {
 
-    private UUID transactionId;
+    private Integer transactionId;
     private Date transactionDate;
     private String invoiceNumber;
     private String scac;
