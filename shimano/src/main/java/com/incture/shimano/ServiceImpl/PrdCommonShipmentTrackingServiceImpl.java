@@ -53,23 +53,8 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
     @Override
     public ResponseMessage savePrdCommonShipment(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto) {
          ResponseMessage responseMessage = new ResponseMessage();
-//        if (prdCommonShipmentTrackingDto != null ) {
-//            if(prdCommonShipmentTrackingDto.getPodEstimatedTimeOfArrival() != null && prdCommonShipmentTrackingDto.getPodActualTimeOfArrival() != null) {
-//                prdCommonShipmentTrackingDto.setP44Status("Completed");
-//            } else {
-//                prdCommonShipmentTrackingDto.setP44Status("In Progress");
-//            }
         if (prdCommonShipmentTrackingDto != null ) {
-            if(prdCommonShipmentTrackingDto.getPodActualTimeOfArrival() != null) {
-                prdCommonShipmentTrackingDto.setP44Status("Completed");
-            } else {
-                prdCommonShipmentTrackingDto.setP44Status("In Progress");
-            }
             LOGGER.info("started saving the CustomerLogInfo into db");
- //           prdCommonShipmentTrackingDto.setEtaDate(ts);
-//            TimeZone.setDefault(TimeZone.getTimeZone("America/Los_Angeles"));
-//            Date date = new Date();
-//            prdCommonShipmentTrackingDto.setTransactionDate(date);
             PrdCommonShipmentTracking prdCommonShipmentTracking = this.dtoToEntity(prdCommonShipmentTrackingDto);
             try {
                 PrdCommonShipmentTracking prdCommonShipmentTracking1 = prdCommonShipmentTrackingRepository.save(prdCommonShipmentTracking);
@@ -91,23 +76,12 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
     public ResponseMessage updatePrdCommonShipment(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto) {
         LOGGER.info("Started fetching the PrdCommonShipmentTracking to prdCommonShipmentTrackingDto: " + prdCommonShipmentTrackingDto.toString() + "Where the transactionId is: " + prdCommonShipmentTrackingDto.getTransactionId());
         ResponseMessage responseMessage = new ResponseMessage();
-        PrdCommonShipmentTracking prdCommonShipmentTracking = prdCommonShipmentTrackingRepository.findByTransactionId(prdCommonShipmentTrackingDto.getTransactionId());
+        PrdCommonShipmentTracking prdCommonShipmentTrackingLocal = prdCommonShipmentTrackingRepository.findByTransactionId(prdCommonShipmentTrackingDto.getTransactionId());
+        PrdCommonShipmentTracking prdCommonShipmentTracking = new PrdCommonShipmentTracking();
         if(prdCommonShipmentTracking!= null) {
             try {
-                prdCommonShipmentTracking.setInvoiceNumber(prdCommonShipmentTrackingDto.getInvoiceNumber());
-                prdCommonShipmentTracking.setScac(prdCommonShipmentTrackingDto.getScac());
-                prdCommonShipmentTracking.setContainerID(prdCommonShipmentTrackingDto.getContainerID());
-                prdCommonShipmentTracking.setAirwayBillNumber(prdCommonShipmentTrackingDto.getAirwayBillNumber());
-                prdCommonShipmentTracking.setP44Status(prdCommonShipmentTrackingDto.getP44Status());
-                prdCommonShipmentTracking.setClosedFlag(prdCommonShipmentTrackingDto.getClosedFlag());
-                prdCommonShipmentTracking.setAirwayBillNumber(prdCommonShipmentTrackingDto.getAirwayBillNumber());
-                prdCommonShipmentTracking.setPodVesselName(prdCommonShipmentTrackingDto.getPodVesselName());
-                prdCommonShipmentTracking.setNote(prdCommonShipmentTrackingDto.getNote());
-                prdCommonShipmentTracking.setMbl(prdCommonShipmentTrackingDto.getMbl());
-                prdCommonShipmentTracking.setPodVesselName(prdCommonShipmentTrackingDto.getPolVesselName());
-                prdCommonShipmentTracking.setPortOfDischarge(prdCommonShipmentTrackingDto.getPortOfDischarge());
-                prdCommonShipmentTracking.setPortOfLoading(prdCommonShipmentTrackingDto.getPortOfLoading());
-                prdCommonShipmentTracking.setProductType(prdCommonShipmentTrackingDto.getProductType());
+                prdCommonShipmentTracking = this.dtoToEntity(prdCommonShipmentTrackingDto);
+                prdCommonShipmentTracking.setTransactionId(prdCommonShipmentTrackingLocal.getTransactionId());
                 prdCommonShipmentTrackingRepository.save(prdCommonShipmentTracking);
                 LOGGER.info("Successfully updated PrdCommonShipmentTracking into DB");
                 responseMessage.setResponseStatus("Successfully Updated PrdCommonShipmentTracking", ShimanoConstants.SUCCESS, ShimanoConstants.CODE_SUCCESS, prdCommonShipmentTracking.getTransactionId());
@@ -147,8 +121,13 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
 
             createdOnTimeStamp = new Timestamp(fromDate.getTime()+ 1 * 24 * 60 * 60 * 1000);
         }
-        List<PrdCommonShipmentTracking> prdCommonShipmentTrackingList = prdCommonShipmentTrackingRepository.filter(currentTime,createdOnTimeStamp);
-        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
+        List<PrdCommonShipmentTracking> prdCommonShipmentTrackingList = prdCommonShipmentTrackingRepository.filter(
+                currentTime,
+                createdOnTimeStamp,
+                PrdCommonShipmentTrackingDto.getP44Status(),
+                PrdCommonShipmentTrackingDto.getClosedFlag()
+        );
+                prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
         return prdDto;
     }
 
