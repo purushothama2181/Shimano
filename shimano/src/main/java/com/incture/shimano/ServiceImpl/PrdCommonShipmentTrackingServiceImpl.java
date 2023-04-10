@@ -125,7 +125,8 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
                 currentTime,
                 createdOnTimeStamp,
                 PrdCommonShipmentTrackingDto.getP44Status(),
-                PrdCommonShipmentTrackingDto.getClosedFlag()
+                PrdCommonShipmentTrackingDto.getClosedFlag(),
+                PrdCommonShipmentTrackingDto.getTransactionId()
         );
                 prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
         return prdDto;

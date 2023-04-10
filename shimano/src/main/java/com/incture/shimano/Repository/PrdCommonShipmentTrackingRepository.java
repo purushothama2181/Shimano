@@ -16,11 +16,13 @@ public interface PrdCommonShipmentTrackingRepository extends JpaRepository<PrdCo
     @Query(value="from PrdCommonShipmentTracking c "
             + "where (:transactionDate is null or c.transactionDate between :transactionDate and :currentTime)"
             + "and (:p44Status is null or c.p44Status = :p44Status) "
-            + "and (:closedFlag is null or c.closedFlag = :closedFlag) ")
+            + "and (:closedFlag is null or c.closedFlag = :closedFlag) "
+            + "and (:transactionId is null or c.transactionId = :transactionId) ")
     List<PrdCommonShipmentTracking> filter( @Param("currentTime")Timestamp currentTime,
                                             @Param("transactionDate")Timestamp createdOnTimeStamp,
                                             @Param("p44Status") String p44Status,
-                                            @Param("closedFlag") String closedFlag
+                                            @Param("closedFlag") String closedFlag,
+                                            @Param("transactionId") Integer transactionId
                                             );
 
 
