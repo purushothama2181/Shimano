@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.sap.db.jdbc.Driver
+    url: jdbc:sap://e6f76632-3803-4b0e-a2a7-12c0c527289d.hana.prod-us20.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=P44_PRD_SCHEMA_BK79B0KMZPPL3OP8FTOQ85TW5_RT
+    username: P44_PRD_SCHEMA_BK79B0KMZPPL3OP8FTOQ85TW5_RT
+    password: Ez1to9R3IrnVWMkRXA65aUfus1XWOf8QhRYY9qaMkTQ4_Emsf0CipqCrAyN59Lq3LpyjwYx4a-mEM-5gbs2me2dEnktLZFIGO.wVlD4kfzRfbObIbtb0WMI-4Ky3a2so

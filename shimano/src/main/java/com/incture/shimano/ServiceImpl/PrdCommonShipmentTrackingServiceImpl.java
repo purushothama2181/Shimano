@@ -128,7 +128,7 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
                 PrdCommonShipmentTrackingDto.getClosedFlag(),
                 PrdCommonShipmentTrackingDto.getTransactionId()
         );
-                prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
+        prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
         return prdDto;
     }
 
