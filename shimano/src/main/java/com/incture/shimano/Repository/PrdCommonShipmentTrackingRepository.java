@@ -28,6 +28,8 @@ public interface PrdCommonShipmentTrackingRepository extends JpaRepository<PrdCo
     List<PrdCommonShipmentTracking> findByContainerIDAndScac(String containerID, String scac);
 
 
+
+
 //    List<PrdCommonShipmentTracking> findByTransactionDate(Date transactionDate);
 
 
