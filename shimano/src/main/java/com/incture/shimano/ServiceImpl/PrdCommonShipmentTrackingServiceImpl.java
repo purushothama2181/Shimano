@@ -139,7 +139,7 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
         List<String> list = new ArrayList<>();
         try {
             List<PrdCommonShipmentTracking> entities = prdCommonShipmentTrackingRepository.findByContainerIDAndScac(containerID,scac);
-            list = entities.stream().map(CMApprovedDdpRoutes::getCustomerCountry).collect(Collectors.toList());
+            list = entities.stream().map(PrdCommonShipmentTracking::getInvoiceNumber).collect(Collectors.toList());
         }catch(Exception e) {
             e.getMessage();
         }
