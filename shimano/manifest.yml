@@ -1,9 +1,9 @@
 applications:
-  -   name: shimano
+  -   name: shimano-prod
       memory: 1000M
       path: target/shimano-0.0.1-SNAPSHOT.jar
       random-route: false
       buildpacks:
         - sap_java_buildpack
       services:
-        - P44_DEV_SCHEMA
+        - P44_PRD_SCHEMA
