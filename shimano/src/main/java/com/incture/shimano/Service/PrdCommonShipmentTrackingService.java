@@ -17,6 +17,8 @@ public interface PrdCommonShipmentTrackingService {
 
     PrdDto getPrdCommonShipmentByEta(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto);
 
+    List<String> getInvoiceNumber(String containerID, String scac);
+
 //    List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByEta(String etaDate) throws ParseException;
 //
 //

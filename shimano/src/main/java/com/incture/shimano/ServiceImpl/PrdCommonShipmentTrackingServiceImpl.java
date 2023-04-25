@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -20,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTrackingService {
@@ -130,6 +132,18 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
         );
         prdDto.setPrdCommonShipmentTrackingList(prdCommonShipmentTrackingList);
         return prdDto;
+    }
+
+    @Override
+    public List<String> getInvoiceNumber(String containerID, String scac) {
+        List<String> list = new ArrayList<>();
+        try {
+            List<PrdCommonShipmentTracking> entities = prdCommonShipmentTrackingRepository.findByContainerIDAndScac(containerID,scac);
+            list = entities.stream().map(CMApprovedDdpRoutes::getCustomerCountry).collect(Collectors.toList());
+        }catch(Exception e) {
+            e.getMessage();
+        }
+        return list;
     }
 
 //    @Override

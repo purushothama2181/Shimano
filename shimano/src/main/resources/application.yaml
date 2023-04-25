@@ -51,6 +51,6 @@ spring:
         idleTimeout: 120000
         maxLifetime: 500000
   profiles:
-    active: dev
+    active: prod
 
 
