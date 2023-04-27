@@ -143,7 +143,13 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
         }catch(Exception e) {
             e.getMessage();
         }
-        return list;
+        if(list.size()==0){
+            List<String> newArrList = new ArrayList<>();
+            newArrList.add(null);
+           return newArrList;
+        }else {
+            return list;
+        }
     }
 
 //    @Override

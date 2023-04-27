@@ -7,6 +7,6 @@ com\incture\shimano\Service\PrdCommonShipmentTrackingService.class
 com\incture\shimano\Entity\PrdCommonShipmentTracking.class
 com\incture\shimano\Config\SwaggerConfig.class
 com\incture\shimano\Dto\PrdDto.class
-com\incture\shimano\Config\WebSecurityConfig.class
+com\incture\shimano\Config\CloudConfig.class
 com\incture\shimano\Dto\PrdCommonShipmentTrackingDto.class
 com\incture\shimano\ServiceImpl\PrdCommonShipmentTrackingServiceImpl.class
