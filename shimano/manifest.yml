@@ -7,3 +7,6 @@ applications:
         - sap_java_buildpack
       services:
         - P44_DEV_SCHEMA
+        - shimano-dev-application-xsuaa
+
+
