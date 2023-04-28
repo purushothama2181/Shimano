@@ -1,5 +1,6 @@
 package com.incture.shimano.Controller;
 
+import com.incture.shimano.Dto.PrdCommonDto;
 import com.incture.shimano.Dto.PrdCommonShipmentTrackingDto;
 import com.incture.shimano.Dto.PrdDto;
 import com.incture.shimano.Service.PrdCommonShipmentTrackingService;
@@ -8,9 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -52,12 +55,22 @@ public class PrdCommonShipmentTrackingController {
     }
 
     /*
-     * get CustomerCountry using containerID and scac
+     * Get method for fetching AuditLogInfo By requestId
      * */
-    @GetMapping("/getInvoiceNumber")
-    public List<String> getInvoiceNumber(@RequestParam String containerID, @RequestParam String scac){
-        return prdCommonShipmentTrackingService.getInvoiceNumber(containerID,scac);
+    @GetMapping(value = "/getInvoiceNumber")
+    public PrdCommonDto getInvoiceNumber1(@RequestParam String containerID, @RequestParam String scac) {
+        return prdCommonShipmentTrackingService.getInvoiceNumber1(containerID,scac);
     }
+
+//    /*
+//     * get CustomerCountry using containerID and scac
+//     * */
+//    @GetMapping(value = "/getInvoiceNumber")
+//    public List<String> getInvoiceNumber(@RequestParam String containerID, @RequestParam String scac){
+//        return prdCommonShipmentTrackingService.getInvoiceNumber(containerID,scac);
+//    }
+
+
 
 
 

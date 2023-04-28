@@ -1,5 +1,6 @@
 package com.incture.shimano.ServiceImpl;
 
+import com.incture.shimano.Dto.PrdCommonDto;
 import com.incture.shimano.Dto.PrdCommonShipmentTrackingDto;
 import com.incture.shimano.Dto.PrdDto;
 import com.incture.shimano.Entity.PrdCommonShipmentTracking;
@@ -134,22 +135,41 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
         return prdDto;
     }
 
+//    @Override
+//    public List<String> getInvoiceNumber(String containerID, String scac) {
+//        List<String> list = new ArrayList<>();
+//        try {
+//            List<PrdCommonShipmentTracking> entities = prdCommonShipmentTrackingRepository.findByContainerIDAndScac(containerID,scac);
+//            list = entities.stream().map(PrdCommonShipmentTracking::getInvoiceNumber).collect(Collectors.toList());
+//        }catch(Exception e) {
+//            e.getMessage();
+//        }
+//        if(list.size()==0){
+//            List<String> newArrList = new ArrayList<>();
+//            newArrList.add(null);
+//           return newArrList;
+//        }else {
+//            return list;
+//        }
+//    }
+
     @Override
-    public List<String> getInvoiceNumber(String containerID, String scac) {
-        List<String> list = new ArrayList<>();
-        try {
-            List<PrdCommonShipmentTracking> entities = prdCommonShipmentTrackingRepository.findByContainerIDAndScac(containerID,scac);
-            list = entities.stream().map(PrdCommonShipmentTracking::getInvoiceNumber).collect(Collectors.toList());
-        }catch(Exception e) {
-            e.getMessage();
+    public PrdCommonDto getInvoiceNumber1(String containerID, String scac) {
+        PrdCommonDto prdCommonDto = new PrdCommonDto();
+        List<PrdCommonShipmentTracking> AuditLogs = prdCommonShipmentTrackingRepository.findByContainerIDAndScac(containerID, scac);
+
+        List<PrdCommonShipmentTrackingDto> cmAuditLogDtos = new ArrayList<>();
+        if (AuditLogs != null) {
+            for (PrdCommonShipmentTracking entity : AuditLogs) {
+                cmAuditLogDtos.add(this.entityToDto(entity));
+            }
+            prdCommonDto.setPrdCommonShipmentTracking(cmAuditLogDtos);
+            if (cmAuditLogDtos.size() == 0) {
+                cmAuditLogDtos.add(null);
+                return prdCommonDto;
+            }
         }
-        if(list.size()==0){
-            List<String> newArrList = new ArrayList<>();
-            newArrList.add(null);
-           return newArrList;
-        }else {
-            return list;
-        }
+        return prdCommonDto;
     }
 
 //    @Override

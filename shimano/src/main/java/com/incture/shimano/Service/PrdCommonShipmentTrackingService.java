@@ -1,5 +1,6 @@
 package com.incture.shimano.Service;
 
+import com.incture.shimano.Dto.PrdCommonDto;
 import com.incture.shimano.Dto.PrdCommonShipmentTrackingDto;
 import com.incture.shimano.Dto.PrdDto;
 import com.incture.shimano.Entity.PrdCommonShipmentTracking;
@@ -17,7 +18,9 @@ public interface PrdCommonShipmentTrackingService {
 
     PrdDto getPrdCommonShipmentByEta(PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto);
 
-    List<String> getInvoiceNumber(String containerID, String scac);
+//    List<String> getInvoiceNumber(String containerID, String scac);
+
+    PrdCommonDto getInvoiceNumber1(String containerID, String scac);
 
 //    List<PrdCommonShipmentTrackingDto> getPrdCommonShipmentByEta(String etaDate) throws ParseException;
 //
