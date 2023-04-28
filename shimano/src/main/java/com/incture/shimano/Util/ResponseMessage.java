@@ -9,6 +9,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class ResponseMessage {
 
+
     private String responseMessage;
 
     private String status;

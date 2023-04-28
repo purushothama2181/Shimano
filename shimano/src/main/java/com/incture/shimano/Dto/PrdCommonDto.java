@@ -12,4 +12,6 @@ import java.util.List;
 public class PrdCommonDto {
 
     private List<PrdCommonShipmentTrackingDto> prdCommonShipmentTracking;
+
+    private String response;
 }

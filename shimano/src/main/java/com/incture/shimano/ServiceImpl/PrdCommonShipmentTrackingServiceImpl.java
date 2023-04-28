@@ -166,6 +166,7 @@ public class PrdCommonShipmentTrackingServiceImpl implements PrdCommonShipmentTr
             prdCommonDto.setPrdCommonShipmentTracking(cmAuditLogDtos);
             if (cmAuditLogDtos.size() == 0) {
                 cmAuditLogDtos.add(null);
+                prdCommonDto.setResponse("noRecords");
                 return prdCommonDto;
             }
         }

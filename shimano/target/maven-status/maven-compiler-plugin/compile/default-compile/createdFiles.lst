@@ -1,5 +1,6 @@
 com\incture\shimano\Repository\PrdCommonShipmentTrackingRepository.class
 com\incture\shimano\Util\ShimanoConstants.class
+com\incture\shimano\Dto\PrdCommonDto.class
 com\incture\shimano\ShimanoApplication.class
 com\incture\shimano\Util\ResponseMessage.class
 com\incture\shimano\Controller\PrdCommonShipmentTrackingController.class
