@@ -30,6 +30,7 @@ public class PrdCommonShipmentTrackingController {
     /*
      * Create for savePrdCommonShipment
      * */
+    
     @PostMapping("/savePrdCommonShipment")
     public ResponseMessage savePrdCommonShipment(@RequestBody PrdCommonShipmentTrackingDto prdCommonShipmentTrackingDto) {
         logger.info("Started fetching the PrdCommonShipmentTrackingDto to prdCommonShipmentTrackingDto: " + prdCommonShipmentTrackingDto.toString());
