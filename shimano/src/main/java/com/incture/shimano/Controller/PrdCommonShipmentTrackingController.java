@@ -62,6 +62,7 @@ public class PrdCommonShipmentTrackingController {
         return prdCommonShipmentTrackingService.getInvoiceNumber1(containerID,scac);
     }
 
+
 //    /*
 //     * get CustomerCountry using containerID and scac
 //     * */
@@ -69,10 +70,6 @@ public class PrdCommonShipmentTrackingController {
 //    public List<String> getInvoiceNumber(@RequestParam String containerID, @RequestParam String scac){
 //        return prdCommonShipmentTrackingService.getInvoiceNumber(containerID,scac);
 //    }
-
-
-
-
 
     //    @GetMapping(value = "/getPrdCommonShipmentByActualEstimatedTime")
 //    public PrdDto getPrdCommonShipmentByActualAndEstimatedTimeArrival(@RequestParam("podEstimatedTimeOfArrival") String podEstimatedTimeOfArrival , @RequestParam("podActualTimeOfArrival") String podActualTimeOfArrival) throws ParseException {

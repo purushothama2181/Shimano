@@ -5,7 +5,3 @@ spring:
     username: P44_DEV_SCHEMA_98QXI4N1NYWML2GCJXJ9KA1YQ_RT
     password: Qd1YHV8x8NNrkFMU4mpM19bKcx0JsA7s_L.o2kfC74BglcmI38AKWvxNSY-u-lAYCXf5LOfkI81o8vp6jzJhdpuoVaiFayB-H6cU.X6fbw0ZlotzUqcxComi7b.UVvCh
 
-#    spring.datasource.url: ${vcap.services.mysql.credentials.jdbcUrl:jdbc:h2:mem:testdb}
-#    spring.datasource.username: ${vcap.services.mysql.credentials.username:sa}
-#    spring.datasource.password: ${vcap.services.mysql.credentials.password:}
-#    spring.datasource.testOnBorrow: true
